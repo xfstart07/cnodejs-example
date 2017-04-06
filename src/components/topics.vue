@@ -2,7 +2,8 @@
   <section id="page">
     <ul class="posts-list">
       <li v-for="item in topics" :key="item.id">
-          <h3 v-text="item.title"></h3>
+        <router-link :to="{name: 'Topic', params: {id: item.id}}">
+          <h3 class="topic-title" v-text="item.title"></h3>
           <div class="content">
             <img :src="item.author.avatar_url" alt="Avatar">
             <div class="info">
@@ -14,17 +15,16 @@
               </p>
               <p>
                 <time>{{item.create_at}}</time>
-                <time>{{item.last_reply_at}}</time>
               </p>
             </div>
           </div>
+        </router-link>
       </li>
     </ul>
   </section>
 </template>
 <script>
   import $ from 'webpack-zepto';
-  import '@/assets/stylesheets/app.scss';
 
   export default {
     data() {
@@ -47,7 +47,6 @@
     methods: {
       getTopics() {
         let params = $.param(this.searchKey);
-        console.log(params);
         this.$http.get('https://cnodejs.org/api/v1/topics?' + params).then(response => {
           this.scroll = true;
           console.log(response.data.data);
@@ -67,6 +66,9 @@
           this.topics.push(topic);
         }
       }
+    },
+    filters: {
+
     }
   }
 </script>

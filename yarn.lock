@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/jquery@^2.0.40":
+  version "2.0.41"
+  resolved "http://registry.npm.taobao.org/@types/jquery/download/@types/jquery-2.0.41.tgz#b87ba051011f99edbe586d8f97282e7786e01a6d"
+
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
   resolved "http://registry.npm.taobao.org/abbrev/download/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
@@ -5173,6 +5177,12 @@ through@~2.3.8:
 thunkify@~2.1.1:
   version "2.1.2"
   resolved "http://registry.npm.taobao.org/thunkify/download/thunkify-2.1.2.tgz#faa0e9d230c51acc95ca13a361ac05ca7e04553d"
+
+timeago.js@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/timeago.js/download/timeago.js-3.0.1.tgz#59b75e0c963bbadc34e0aca901f7430c053a0e1f"
+  dependencies:
+    "@types/jquery" "^2.0.40"
 
 timers-browserify@^2.0.2:
   version "2.0.2"

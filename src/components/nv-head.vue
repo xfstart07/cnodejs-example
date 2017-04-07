@@ -1,0 +1,51 @@
+<template>
+  <div class="header">
+    <div class="page-cover" v-if="show&&fixHead" @click="showMenus"></div>
+    <header :class="{'show': show&&fixHead, 'fix-header': fixHead, 'no-fix': !fixHead}" id="hd">
+      <div class="nv-toolbar">
+        <div class="toolbar-nav" @click="openMenu" v-if="fixHead"></div>
+        <span v-text="pageType"></span>
+      </div>
+    </header>
+    <nvMenu :show-menu="show" :page-type="pageType"
+      :nick-name="nickname" :profile-url="profileimgurl" v-if="fixHead"></nvMenu>
+  </div>
+</template>
+
+<script>
+  import $ from 'webpack-zepto'
+  import Menu from '@/components/menu.vue'
+
+  export default {
+    replace: true,
+    props: {
+      pageType: String,
+      fixHead: Boolean,
+      messageCount: Number,
+      needAdd: {
+        type: Boolean,
+        default: true
+      }
+    },
+    data() {
+      return {
+        nickname: '',
+        profileimgurl: '',
+        show: false
+      }
+    },
+    methods: {
+      openMenu() {
+        $('#page').addClass('scroll-hide');
+        this.show = !this.show;;
+      },
+      showMenus() {
+        $('#page').removeClass('scroll-hide');
+        this.show = !this.show;;
+      }
+    },
+    components: {
+      'nvMenu': Menu
+    }
+  }
+</script>

@@ -5,6 +5,7 @@
       <div class="nv-toolbar">
         <div class="toolbar-nav" @click="openMenu" v-if="fixHead"></div>
         <span v-text="pageType"></span>
+        <router-link to="/login" class="login-btn">登录</router-link>
       </div>
     </header>
     <nvMenu :show-menu="show" :page-type="pageType"
@@ -49,3 +50,8 @@
     }
   }
 </script>
+<style lang="scss">
+  .login-btn {
+    width: 50px;
+  }
+</style>

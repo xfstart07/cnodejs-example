@@ -3,12 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import axios from 'axios'
 import Timeago from 'timeago.js'
+import Alert from './libs/alert';
 import '@/assets/stylesheets/app.scss';
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
+Vue.use(Alert);
 
 window.Timeago = new Timeago();
 
@@ -16,6 +19,7 @@ window.Timeago = new Timeago();
 let app = new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App

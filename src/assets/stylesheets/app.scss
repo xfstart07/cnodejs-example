@@ -1,5 +1,15 @@
 @import 'common/reset.scss';
+
+/* common css*/
+
+$gap: 5px;
+$colore7:#e7e7e7;
+$color80:#80bd01;
+
+/* common css*/
+
 @import 'common/github-markdown';
 @import 'header.scss';
 @import 'page.scss';
 @import 'topics.scss';
+@import 'user.scss';

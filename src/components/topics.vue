@@ -16,12 +16,13 @@
               <div class="info">
                 <p>
                   <span class="name">{{item.author.loginname}}</span>
-                  <span class="status" v-if="item.reply_count > 0">
-                    <b>{{item.reply_count}}</b>/{{item.visit_count}}
+                  <span class="status">
+                    <b>{{item.reply_count || 0}}</b>/{{item.visit_count || 0}}
                   </span>
                 </p>
                 <p>
-                  <time>{{item.create_at | getLastTimeStr}}</time>
+                  <time class="created_at">{{item.create_at | getLastTimeStr}}</time>
+                  <time class="last_reply_at">{{item.last_reply_at | getLastTimeStr}}</time>
                 </p>
               </div>
             </div>
@@ -118,3 +119,9 @@
     }
   }
 </script>
+<style lang="scss">
+  span.name, time.created_at{
+    float: left;
+    margin-left: 10px;
+  }
+</style>

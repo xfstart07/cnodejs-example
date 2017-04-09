@@ -1,7 +1,7 @@
 .posts-list {
   background-color: white;
   li {
-    padding: 20px 10px;
+    padding: 10px;
     border-bottom: 1px solid #E9EBED;
     a {
       color: #676B76;
@@ -12,9 +12,10 @@
     padding-bottom: 5px;
   }
   .content {
+    height: 50px;
     img {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       float: left;
       text-align: center;
     }

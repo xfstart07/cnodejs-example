@@ -34,4 +34,28 @@
   .topic-title {
     margin-bottom: 10px;
   }
+  .replies {
+    border-top: 1px solid #676B76;
+    padding: 10px 0;
+    li.reply {
+      padding: 10px;
+      display: block;
+      border-bottom: 1px solid #E9EBED;
+    }
+    .replies-count {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .reply-user {
+      display: inline-block;
+      img {
+        width: 32px;
+        height: 32px;
+        float: left;
+      }
+      span.name {
+        float: left;
+      }
+    }
+  }
 }

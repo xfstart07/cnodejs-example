@@ -10,7 +10,9 @@
       <ul class="posts-list">
         <li v-for="item in topics" :key="item.id">
           <router-link :to="{name: 'Topic', params: {id: item.id}}">
-            <h3 class="topic-title" v-text="item.title"></h3>
+            <h3 class="topic-title">
+            <span class="title-label" :class="getTitleLabelClass(item)" v-text="getTitleStr(item.tab)"></span>
+            {{item.title}}</h3>
             <div class="content">
               <img :src="item.author.avatar_url" alt="Avatar">
               <div class="info">
@@ -83,7 +85,6 @@
         }
       },
       getTitleStr(tab) {
-        let str = '';
         const tabs = {
           share: '分享',
           ask: '问答',
@@ -93,6 +94,9 @@
         }
 
         return tabs[tab];
+      },
+      getTitleLabelClass(item) {
+        return item.top ? 'top' : item.tab;
       }
     },
     filters: {
@@ -123,5 +127,18 @@
   span.name, time.created_at{
     float: left;
     margin-left: 10px;
+  }
+  .title-label {
+    &.top,&.good {
+      background: #80bd01;
+    }
+    padding: 2px 4px;
+    color: #fff;
+    font-size: 12px;
+  }
+  .title-label {
+    &.ask,&.share,&.job {
+      background: #e5e5e5;
+    }
   }
 </style>

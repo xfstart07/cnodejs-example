@@ -1,61 +1,67 @@
-.posts-list {
-  background-color: white;
-  li {
-    padding: 10px;
-    border-bottom: 1px solid #E9EBED;
-    a {
-      color: #676B76;
-    }
-  }
-  .topic-title {
-    text-align: left;
-    padding-bottom: 5px;
-  }
-  .content {
-    height: 50px;
-    img {
-      width: 50px;
-      height: 50px;
-      float: left;
-      text-align: center;
-    }
-    .info {
-      text-align: right;
-      .name {
-        font-size: 16px;
-        font-weight: bold;
+    .posts-list {
+      background-color: white;
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #E9EBED;
+        a {
+          color: #676B76;
+        }
+      }
+      .topic-title {
+        text-align: left;
+        padding-bottom: 5px;
+      }
+      .content {
+        height: 50px;
+        img {
+          width: 50px;
+          height: 50px;
+          float: left;
+          text-align: center;
+        }
+        .info {
+          text-align: right;
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
       }
     }
-  }
-}
 
-.topic {
-  padding: 10px;
-  .topic-title {
-    margin-bottom: 10px;
-  }
-  .replies {
-    border-top: 1px solid #676B76;
-    padding: 10px 0;
-    li.reply {
+    .topic {
       padding: 10px;
-      display: block;
-      border-bottom: 1px solid #E9EBED;
-    }
-    .replies-count {
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .reply-user {
-      display: inline-block;
-      img {
-        width: 32px;
-        height: 32px;
-        float: left;
+      .topic-title {
+        margin-bottom: 10px;
       }
-      span.name {
-        float: left;
+      .replies {
+        border-top: 1px solid #676B76;
+        padding: 10px 0;
+        li.reply {
+          padding: 10px;
+          display: block;
+          border-bottom: 1px solid #E9EBED;
+        }
+        .replies-count {
+          font-weight: bold;
+          font-size: 16px;
+        }
+        .reply-content {
+          padding-top: 5px;
+          img {
+            width: 90%;
+          }
+        }
+        .reply-user {
+          display: inline-block;
+          img {
+            width: 32px;
+            height: 32px;
+            float: left;
+          }
+          span.name {
+            float: left;
+          }
+        }
       }
     }
-  }
-}

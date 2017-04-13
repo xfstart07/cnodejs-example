@@ -42,6 +42,7 @@
             token: this.token
           }
 
+          window.sessionStorage.user = JSON.stringify(user);
           this.$store.dispatch('setUserInfo', user);
 
           this.$router.push({

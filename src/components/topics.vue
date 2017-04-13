@@ -42,16 +42,15 @@
   export default {
     data() {
       return {
-        scroll: true,
         topics: [],
         index: {},
+        busy: false,
         searchKey: {
           page: 1,
           limit: 20,
           tab: 'all',
           mdrender: true
-        },
-        searchDataStr: ''
+        }
       }
     },
     mounted() {
@@ -61,13 +60,21 @@
 
       this.getTopics();
     },
+    created() {
+      window.addEventListener('scroll', this.getLoadMore);
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.getLoadMore);
+    },
     methods: {
       getTopics() {
         let params = $.param(this.searchKey);
         console.log(params);
+        this.busy = true;
+
         this.$http.get('https://cnodejs.org/api/v1/topics?' + params).then(response => {
-          this.scroll = true;
-          console.log(response.data.data);
+          this.busy = false;
+          console.log(response.data);
           if (response && response.data) {
             response.data.data.forEach(this.mergeTopics);
           }
@@ -97,6 +104,19 @@
       },
       getTitleLabelClass(item) {
         return item.top ? 'top' : item.tab;
+      },
+      getLoadMore() {
+        //Fixme 返回时无法滚动到之前点击进入的位置
+        console.log("document height" + $(document).height()); //document.documentElement.scrollHeight
+        console.log("window height" + $(window).height());   // window.innerHeight
+        console.log("window scroll Top" + $(window).scrollTop()); // window.pageYOffset
+
+        if (this.busy === false) {
+          if ($(window).scrollTop() + $(window).height() + 20 >= $(document).height()) {
+            this.searchKey.page = this.searchKey.page + 1;
+            setTimeout(this.getTopics(), 2000);
+          }
+        }
       }
     },
     filters: {

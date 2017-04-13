@@ -15,6 +15,11 @@ Vue.use(Alert);
 
 window.Timeago = new Timeago();
 
+// 处理刷新的时候vuex被清空但是用户已经登录的情况
+if (window.sessionStorage.user) {
+  store.dispatch('setUserInfo', JSON.parse(window.sessionStorage.user));
+}
+
 /* eslint-disable no-new */
 let app = new Vue({
   el: '#app',
